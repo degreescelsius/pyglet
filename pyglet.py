@@ -9,7 +9,7 @@ __version__ = "v1.3"
 
 def get_latest_release_tag():
     try:
-        url = "https://api.github.com/repos/cells-OSS/pyglet/releases/latest"
+        url = "https://api.github.com/repos/degreescelsius/pyglet/releases/latest"
         response = requests.get(url, timeout=5)
         response.raise_for_status()
         data = response.json()
@@ -27,7 +27,7 @@ def is_update_available(current_version):
 def download_latest_script():
     latest_version = get_latest_release_tag()
     filename = f"pyglet-v{latest_version}.py"
-    url = "https://raw.githubusercontent.com/cells-OSS/pyglet/main/pyglet.py"
+    url = "https://raw.githubusercontent.com/degreescelsius/pyglet/main/pyglet.py"
     response = requests.get(url)
     lines = response.text.splitlines()
     with open(filename, "w", encoding="utf-8") as f:
